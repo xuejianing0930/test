@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>分组 3</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="滑块成功" transform="translate(-231.000000, -332.000000)" fill="#FFFFFF">
+            <g id="分组-3" transform="translate(237.727922, 339.727922) rotate(-45.000000) translate(-237.727922, -339.727922) translate(228.727922, 330.727922)">
+                <rect id="矩形" x="7.70710678" y="0.142135624" width="3" height="17" rx="1.5"></rect>
+                <path d="M9.20710678,0.142135624 L9.20710678,0.142135624 C10.0355339,0.142135624 10.7071068,0.813708499 10.7071068,1.64213562 L10.7071068,15.6421356 C10.7071068,16.4705627 10.0355339,17.1421356 9.20710678,17.1421356 L9.20710678,17.1421356 C8.37867966,17.1421356 7.70710678,16.4705627 7.70710678,15.6421356 L7.70710678,1.64213562 C7.70710678,0.813708499 8.37867966,0.142135624 9.20710678,0.142135624 Z" id="矩形-copy-3" transform="translate(9.207107, 8.642136) rotate(-90.000000) translate(-9.207107, -8.642136) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

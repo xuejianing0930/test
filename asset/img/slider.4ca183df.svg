@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="21px" height="18px" viewBox="0 0 21 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>滑动</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+        <g id="滑块成功" transform="translate(-224.000000, -328.000000)" stroke="#FFFFFF" stroke-width="3">
+            <g id="滑动" transform="translate(226.000000, 330.000000)">
+                <path d="M0.679428681,6.5 L15.8373234,6.5" id="路径-4" transform="translate(8.000000, 6.500000) scale(-1, 1) translate(-8.000000, -6.500000) "></path>
+                <polyline id="路径-5" stroke-linejoin="round" transform="translate(13.500000, 7.000000) scale(-1, 1) translate(-13.500000, -7.000000) " points="17 0 10 6.77412317 17 14"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>
