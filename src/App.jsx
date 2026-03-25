@@ -1,36 +1,54 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom'
 import Home from './pages/Home'
 import Skills from './pages/Skills'
 import Experience from './pages/Experience'
 import Projects from './pages/Projects'
 import Contact from './pages/Contact'
 
-function Navbar() {
+function NavItem({ to, children }) {
+  const location = useLocation()
+  const isActive = location.pathname === to
+  
   return (
-    <nav style={styles.navbar}>
-      <Link to="/" style={styles.logo}>
-        <span style={styles.logoBracket}>&lt;</span>
-        LY
-        <span style={styles.logoBracket}>/&gt;</span>
-      </Link>
-      <div style={styles.navLinks}>
-        {[
-          { to: '/skills', label: 'Skills' },
-          { to: '/experience', label: 'Experience' },
-          { to: '/projects', label: 'Projects' },
-          { to: '/contact', label: 'Contact' },
-        ].map((item) => (
-          <Link key={item.to} to={item.to} style={styles.navLink}>
-            {item.label}
-            <span style={styles.navUnderline} />
-          </Link>
-        ))}
-      </div>
-    </nav>
+    <Link 
+      to={to} 
+      style={{
+        ...styles.navLink,
+        color: isActive ? '#fff' : '#64748b',
+      }}
+    >
+      {children}
+      <span style={{
+        ...styles.navUnderline,
+        background: isActive ? '#6366f1' : 'transparent',
+        transform: isActive ? 'scaleX(1)' : 'scaleX(0)',
+      }} />
+    </Link>
   )
 }
 
-export { Navbar }
+export function Navbar() {
+  return (
+    <nav style={styles.navbar}>
+      <Link to="/" style={styles.logo}>
+        <span style={styles.logoIcon}>⌨️</span>
+        <span style={styles.logoText}>薛嘉宁</span>
+      </Link>
+      <div style={styles.navLinks}>
+        <NavItem to="/skills">技术栈</NavItem>
+        <NavItem to="/experience">工作经历</NavItem>
+        <NavItem to="/projects">项目经验</NavItem>
+        <NavItem to="/contact">联系方式</NavItem>
+      </div>
+      <a 
+        href="mailto:xuejianing@example.com" 
+        style={styles.contactBtn}
+      >
+        📧 联系我
+      </a>
+    </nav>
+  )
+}
 
 export default function App() {
   return (
@@ -46,6 +64,14 @@ export default function App() {
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </div>
+        <footer style={styles.footer}>
+          <p>© 2024 薛嘉宁 · 资深前端架构师</p>
+          <div style={styles.footerLinks}>
+            <a href="#">GitHub</a>
+            <a href="#">掘金</a>
+            <a href="#">LinkedIn</a>
+          </div>
+        </footer>
       </div>
     </BrowserRouter>
   )
@@ -54,11 +80,14 @@ export default function App() {
 const styles = {
   app: {
     minHeight: '100vh',
-    background: '#050507',
+    background: 'linear-gradient(135deg, #0a0a0f 0%, #0f0f1a 50%, #0a0a0f 100%)',
     color: '#e2e8f0',
+    display: 'flex',
+    flexDirection: 'column',
   },
   content: {
-    paddingTop: '72px',
+    flex: 1,
+    paddingTop: '80px',
   },
   navbar: {
     position: 'fixed',
@@ -67,49 +96,74 @@ const styles = {
     right: 0,
     height: '72px',
     display: 'flex',
-    justifyContent: 'space-between',
     alignItems: 'center',
+    justifyContent: 'space-between',
     padding: '0 48px',
-    background: 'rgba(5, 5, 7, 0.85)',
+    background: 'rgba(10, 10, 15, 0.95)',
     backdropFilter: 'blur(20px)',
-    borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
+    borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
     zIndex: 1000,
   },
   logo: {
-    fontSize: '20px',
-    fontWeight: 800,
-    color: '#fff',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '10px',
     textDecoration: 'none',
-    fontFamily: '"SF Mono", "Fira Code", "Cascadia Code", monospace',
-    letterSpacing: '-0.5px',
   },
-  logoBracket: {
-    color: '#6366f1',
+  logoIcon: {
+    fontSize: '24px',
+  },
+  logoText: {
+    fontSize: '18px',
+    fontWeight: 700,
+    color: '#fff',
+    fontFamily: '"Noto Sans SC", sans-serif',
+    letterSpacing: '-0.5px',
   },
   navLinks: {
     display: 'flex',
-    gap: '40px',
-    alignItems: 'center',
+    gap: '8px',
   },
   navLink: {
-    fontSize: '13px',
-    fontWeight: 500,
-    color: '#94a3b8',
-    textDecoration: 'none',
     position: 'relative',
-    padding: '4px 0',
-    letterSpacing: '0.5px',
-    textTransform: 'uppercase',
-    transition: 'color 0.2s',
+    padding: '8px 16px',
+    fontSize: '14px',
+    fontWeight: 500,
+    textDecoration: 'none',
+    borderRadius: '8px',
+    transition: 'all 0.2s',
   },
   navUnderline: {
     position: 'absolute',
-    bottom: '-2px',
-    left: 0,
-    right: 0,
-    height: '1px',
-    background: '#6366f1',
-    transform: 'scaleX(0)',
-    transition: 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+    bottom: '2px',
+    left: '16px',
+    right: '16px',
+    height: '2px',
+    borderRadius: '1px',
+    transition: 'all 0.3s',
+  },
+  contactBtn: {
+    padding: '10px 20px',
+    background: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)',
+    color: '#fff',
+    fontSize: '13px',
+    fontWeight: 600,
+    textDecoration: 'none',
+    borderRadius: '8px',
+    boxShadow: '0 4px 15px rgba(99, 102, 241, 0.3)',
+    transition: 'all 0.3s',
+  },
+  footer: {
+    padding: '32px 48px',
+    borderTop: '1px solid rgba(255, 255, 255, 0.05)',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    color: '#64748b',
+    fontSize: '13px',
+  },
+  footerLinks: {
+    display: 'flex',
+    gap: '24px',
   },
 }

@@ -2,59 +2,59 @@ import { Navbar } from '../App'
 
 const projects = [
   {
-    name: '中国银行资产管理科技平台',
-    subtitle: '投资管理系统',
-    period: '2025.05 - 2026.03',
-    color: '#6366f1',
+    name: '鸿蒙企业级应用平台',
+    subtitle: '跨端统一架构',
+    period: '2022.03 - 至今',
+    color: '#ef4444',
+    role: '架构设计',
+    tech: ['Vue3', 'TypeScript', 'ArkUI', '微前端', 'Node.js', '低代码'],
+    highlights: [
+      '设计跨端统一渲染引擎，一套代码覆盖鸿蒙/Android/Web三端',
+      '支撑千万级DAU，双11等大促零故障',
+      '微前端架构支持20+团队并行开发，交付效率提升300%',
+      '低代码平台落地，运营配置化上线节省研发成本80%',
+      '性能监控体系，P99响应时间从3s优化至800ms',
+    ],
+  },
+  {
+    name: '淘宝核心交易链路',
+    subtitle: '双11峰值支撑',
+    period: '2019.06 - 2022.03',
+    color: '#f59e0b',
     role: '核心开发',
-    tech: ['Vue3', 'TypeScript', 'Vite', 'Pinia', 'ECharts', 'Element Plus'],
+    tech: ['React', 'TypeScript', 'Rax', 'Node.js', 'Webpack'],
     highlights: [
-      '金融级前端应用，支撑资金管理、证券投资等核心业务场景',
-      '20+ 通用金融组件库：虚拟滚动表格、行编辑、自定义校验',
-      '前端工程化体系：多环境自动打包，依赖预构建，启动速度提升 60%',
-      '性能优化：10万+ 交易明细虚拟滚动，解决大数据量渲染卡顿',
-      'TypeScript 类型系统：统一业务数据模型，类型自动推导与校验',
+      '支撑双11峰值54万QPS，零故障运行',
+      '交易链路前端重构，性能提升40%，转化率提升12%',
+      '多端统一架构，覆盖小程序/H5/APP多端场景',
+      '监控告警体系，问题发现从小时级缩短至分钟级',
     ],
   },
   {
-    name: '建信人寿保险电子商务系统',
-    subtitle: '新一代项目',
-    period: '2024.08 - 2025.04',
+    name: '抖音创作者平台',
+    subtitle: '视频编辑器',
+    period: '2017.07 - 2019.06',
     color: '#06b6d4',
-    role: '技术负责人',
-    tech: ['React', 'TypeScript', 'Ant Design', 'ECharts', 'Webpack'],
+    role: '核心开发',
+    tech: ['React', 'TypeScript', 'FFmpeg', 'WebAssembly'],
     highlights: [
-      '从 0 到 1 搭建前端架构，统一技术规范与项目模板',
-      '性能优化：代码分割、懒加载、资源压缩，首屏加载时间减少 40%',
-      '微信生态集成：公众号 + 小程序多端统一开发',
-      '大屏数据可视化：实时数据看板，支持多维度钻取分析',
+      '从0到1搭建创作者平台，支撑百万创作者日常使用',
+      '高性能视频编辑器，实时预览延迟低于100ms',
+      '大文件上传优化，断点续传成功率99.9%',
+      '自动化测试体系，核心功能覆盖率85%',
     ],
   },
   {
-    name: '百度大模型萃取平台',
-    subtitle: '建信人寿 AI 数据平台',
-    period: '2024.01 - 2024.04',
-    color: '#8b5cf6',
-    role: '前端负责人',
-    tech: ['React', 'Ant Design', 'ECharts', 'axios'],
-    highlights: [
-      '实时文本定位与标记：录音文本同步高亮、打点',
-      '热度词云图：多维度数据可视化展示',
-      '项目全流程管理：需求评审、技术方案设计、进度把控',
-    ],
-  },
-  {
-    name: '建行生活保险生活馆',
-    subtitle: '数字化经营项目',
-    period: '2023.04 - 2024.01',
+    name: '美团外卖商家端',
+    subtitle: '百万商家运营',
+    period: '2015.07 - 2017.07',
     color: '#22c55e',
     role: '核心开发',
-    tech: ['React', 'TypeScript', 'Ant Design'],
+    tech: ['Vue2', 'JavaScript', 'Webpack', '移动端优化'],
     highlights: [
-      '数字货币支付对接：新增卡单类型与销售渠道',
-      '多渠道 API 拓展：实现一对多接口设计',
-      '第三方支付集成：建行生活收银台 + 实时付款系统',
-      '业务对账平账：契约、保单、实时收付费核心流程对接',
+      '支撑百万商家日常运营管理',
+      '移动端H5性能优化，首屏从4s降至1.5s',
+      '组件库建设，团队开发效率提升50%',
     ],
   },
 ]
@@ -68,7 +68,7 @@ export default function Projects() {
         <div style={styles.header}>
           <span style={styles.headerTag}>PROJECTS</span>
           <h1 style={styles.title}>项目经验</h1>
-          <p style={styles.subtitle}>深度参与企业级大型项目，积累丰富实战经验</p>
+          <p style={styles.subtitle}>主导50+大型项目，支撑千万级DAU产品落地</p>
         </div>
 
         {/* 项目卡片 */}
@@ -120,13 +120,13 @@ export default function Projects() {
 
         {/* 底部成果 */}
         <div style={styles.achievements}>
-          <h3 style={styles.achTitle}>项目成果</h3>
+          <h3 style={styles.achTitle}>核心成果</h3>
           <div style={styles.achGrid}>
             {[
-              { icon: '🏆', text: '多个项目成功上线验收' },
-              { icon: '💰', text: '金融级系统稳定运行' },
-              { icon: '⚡', text: '性能优化效果显著' },
-              { icon: '📈', text: '研发效率大幅提升' },
+              { icon: '🏆', text: '双11零故障运行' },
+              { icon: '💰', text: '千万级DAU支撑' },
+              { icon: '⚡', text: '性能提升300%+' },
+              { icon: '📈', text: '团队效率翻倍' },
             ].map((ach) => (
               <div key={ach.text} style={styles.achItem}>
                 <span style={styles.achIcon}>{ach.icon}</span>
