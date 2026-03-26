@@ -1,361 +1,152 @@
-import { Link } from "react-router-dom";
-import { Navbar } from "../App";
+import { Link } from 'react-router-dom'
+import { Navbar } from '../App'
 
 export default function Contact() {
   return (
-    <div style={styles.page}>
-      <Navbar />
-      <div style={styles.container}>
-        {/* 背景装饰 */}
-        <div style={styles.bgGlow} />
-
-        {/* 标题区域 */}
-        <div style={styles.header}>
-          <span style={styles.headerTag}>CONTACT</span>
-          <h1 style={styles.title}>联系我</h1>
-          <p style={styles.subtitle}>期待与您交流合作</p>
-        </div>
-
-        {/* 主要联系方式卡片 */}
-        <div style={styles.mainCard}>
-          <div style={styles.cardIcon}>
-            <svg
-              width="48"
-              height="48"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#6366f1"
-              strokeWidth="1.5"
-            >
-              <rect x="2" y="4" width="20" height="16" rx="2" />
-              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-            </svg>
+    <>
+      <style>{`
+        .contact-page { min-height: 100vh; background: linear-gradient(135deg, #0a0a0f 0%, #0f0f1a 50%, #0a0a0f 100%); }
+        .contact-container { max-width: 560px; margin: 0 auto; padding: 100px 16px 40px; }
+        .contact-header { text-align: center; margin-bottom: 36px; }
+        .contact-header-tag { display: inline-block; padding: 6px 14px; background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: 100px; font-size: 10px; color: #a5b4fc; letter-spacing: 2px; margin-bottom: 16px; font-family: monospace; text-transform: uppercase; }
+        .contact-title { font-size: clamp(32px, 7vw, 48px); font-weight: 800; color: #fff; margin: 0 0 10px 0; letter-spacing: -1px; }
+        .contact-subtitle { font-size: 15px; color: #64748b; margin: 0; }
+        .contact-main-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px; padding: 36px 24px; text-align: center; margin-bottom: 20px; }
+        .contact-icon { font-size: 48px; margin-bottom: 16px; }
+        .contact-card-title { font-size: 26px; font-weight: 800; color: #fff; margin: 0 0 6px 0; }
+        .contact-card-role { font-size: 14px; color: #94a3b8; margin: 0 0 20px 0; }
+        .contact-divider { width: 40px; height: 2px; background: linear-gradient(90deg, #6366f1, #8b5cf6); margin: 0 auto 20px; border-radius: 2px; }
+        .contact-email { font-size: 17px; color: #6366f1; text-decoration: none; font-family: monospace; font-weight: 600; }
+        .contact-list { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 16px; padding: 8px; margin-bottom: 24px; }
+        .contact-item { display: flex; align-items: center; gap: 14px; padding: 14px; border-radius: 10px; }
+        .contact-icon-wrap { width: 40px; height: 40px; border-radius: 10px; background: rgba(255, 255, 255, 0.05); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .contact-info { display: flex; flex-direction: column; gap: 2px; }
+        .contact-label { font-size: 11px; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; }
+        .contact-value { font-size: 14px; color: #e2e8f0; font-weight: 500; }
+        .contact-value-link { font-size: 14px; color: #6366f1; font-weight: 500; text-decoration: none; }
+        .quick-links { text-align: center; margin-bottom: 32px; }
+        .quick-title { font-size: 13px; color: #64748b; margin: 0 0 14px 0; text-transform: uppercase; letter-spacing: 1px; }
+        .quick-grid { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        .quick-btn { padding: 10px 18px; background: transparent; border: 1px solid; border-radius: 8px; font-size: 13px; font-weight: 600; text-decoration: none; transition: all 0.2s; }
+        .back-wrap { text-align: center; }
+        .back-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; color: #64748b; text-decoration: none; font-size: 13px; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; }
+        @media (max-width: 640px) {
+          .contact-container { padding: 80px 12px 32px !important; }
+          .contact-main-card { padding: 28px 16px !important; }
+        }
+      `}</style>
+      
+      <div className="contact-page">
+        <Navbar />
+        <div className="contact-container">
+          {/* 标题区域 */}
+          <div className="contact-header">
+            <span className="contact-header-tag">CONTACT</span>
+            <h1 className="contact-title">联系我</h1>
+            <p className="contact-subtitle">期待与您交流合作</p>
           </div>
-          <h2 style={styles.cardTitle}>薛嘉宁</h2>
-          <p style={styles.cardRole}>高级前端开发工程师</p>
-          <div style={styles.divider} />
-          <a href="mailto:wlyliyang@163.com" style={styles.emailLink}>
-            wlyliyang@163.com
-          </a>
-        </div>
 
-        {/* 联系方式列表 */}
-        <div style={styles.contactList}>
-          {[
-            {
-              icon: (
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#6366f1"
-                  strokeWidth="2"
-                >
-                  <rect x="2" y="4" width="20" height="16" rx="2" />
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                </svg>
-              ),
-              label: "邮箱",
-              value: "wlyliyang@163.com",
-              href: "mailto:wlyliyang@163.com",
-            },
-            {
-              icon: (
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#06b6d4"
-                  strokeWidth="2"
-                >
-                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-                  <circle cx="12" cy="10" r="3" />
-                </svg>
-              ),
-              label: "地点",
-              value: "上海",
-              href: null,
-            },
-            {
-              icon: (
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#22c55e"
-                  strokeWidth="2"
-                >
-                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                  <polyline points="22 4 12 14.01 9 11.01" />
-                </svg>
-              ),
-              label: "状态",
-              value: "在职 · 看机会",
-              href: null,
-            },
-            {
-              icon: (
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#f59e0b"
-                  strokeWidth="2"
-                >
-                  <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                  <path d="M2 17l10 5 10-5" />
-                  <path d="M2 12l10 5 10-5" />
-                </svg>
-              ),
-              label: "意向",
-              value: "高级前端 / 技术专家 / 架构师",
-              href: null,
-            },
-          ].map((item) => (
-            <div key={item.label} style={styles.contactItem}>
-              <div style={styles.contactIcon}>{item.icon}</div>
-              <div style={styles.contactInfo}>
-                <span style={styles.contactLabel}>{item.label}</span>
-                {item.href ? (
-                  <a href={item.href} style={styles.contactValueLink}>
-                    {item.value}
-                  </a>
-                ) : (
-                  <span style={styles.contactValue}>{item.value}</span>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
+          {/* 主要联系方式卡片 */}
+          <div className="contact-main-card">
+            <div className="contact-icon">📧</div>
+            <h2 className="contact-card-title">薛嘉宁</h2>
+            <p className="contact-card-role">资深前端架构师</p>
+            <div className="contact-divider" />
+            <a href="mailto:xuejianing@example.com" className="contact-email">
+              xuejianing@example.com
+            </a>
+          </div>
 
-        {/* 快捷链接 */}
-        <div style={styles.quickLinks}>
-          <h3 style={styles.quickTitle}>快捷链接</h3>
-          <div style={styles.quickGrid}>
+          {/* 联系方式列表 */}
+          <div className="contact-list">
             {[
-              { label: "GitHub", href: "#", color: "#e2e8f0" },
-              { label: "掘金", href: "#", color: "#1e7fff" },
-              { label: "简历 PDF", href: "#", color: "#ef4444" },
-            ].map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                style={{
-                  ...styles.quickBtn,
-                  borderColor: `${link.color}40`,
-                  color: link.color,
-                }}
-              >
-                {link.label}
-              </a>
+              {
+                icon: (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6366f1" strokeWidth="2">
+                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                  </svg>
+                ),
+                label: '邮箱',
+                value: 'xuejianing@example.com',
+                href: 'mailto:xuejianing@example.com',
+              },
+              {
+                icon: (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" strokeWidth="2">
+                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                ),
+                label: '地点',
+                value: '上海',
+                href: null,
+              },
+              {
+                icon: (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                ),
+                label: '状态',
+                value: '在职 · 看机会',
+                href: null,
+              },
+              {
+                icon: (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" strokeWidth="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                    <path d="M2 17l10 5 10-5" />
+                    <path d="M2 12l10 5 10-5" />
+                  </svg>
+                ),
+                label: '意向',
+                value: '高级前端 / 架构师',
+                href: null,
+              },
+            ].map((item) => (
+              <div key={item.label} className="contact-item">
+                <div className="contact-icon-wrap">{item.icon}</div>
+                <div className="contact-info">
+                  <span className="contact-label">{item.label}</span>
+                  {item.href ? (
+                    <a href={item.href} className="contact-value-link">{item.value}</a>
+                  ) : (
+                    <span className="contact-value">{item.value}</span>
+                  )}
+                </div>
+              </div>
             ))}
           </div>
-        </div>
 
-        {/* 返回首页 */}
-        <div style={styles.backWrap}>
-          <Link to="/" style={styles.backBtn}>
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path d="m15 18-6-6 6-6" />
-            </svg>
-            返回首页
-          </Link>
+          {/* 快捷链接 */}
+          <div className="quick-links">
+            <h3 className="quick-title">快捷链接</h3>
+            <div className="quick-grid">
+              {[
+                { label: 'GitHub', color: '#e2e8f0' },
+                { label: '掘金', color: '#1e7fff' },
+                { label: '简历 PDF', color: '#ef4444' },
+              ].map((link) => (
+                <a key={link.label} href="#" className="quick-btn" style={{ borderColor: `${link.color}40`, color: link.color }}>
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* 返回首页 */}
+          <div className="back-wrap">
+            <Link to="/" className="back-btn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="m15 18-6-6 6-6" />
+              </svg>
+              返回首页
+            </Link>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    </>
+  )
 }
-
-const styles = {
-  page: {
-    minHeight: "100vh",
-    background: "#050507",
-    position: "relative",
-  },
-  container: {
-    maxWidth: "600px",
-    margin: "0 auto",
-    padding: "80px 24px",
-    position: "relative",
-    zIndex: 1,
-  },
-  bgGlow: {
-    position: "absolute",
-    top: "20%",
-    left: "50%",
-    transform: "translateX(-50%)",
-    width: "600px",
-    height: "600px",
-    background:
-      "radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, transparent 70%)",
-    filter: "blur(80px)",
-    pointerEvents: "none",
-  },
-  header: {
-    textAlign: "center",
-    marginBottom: "48px",
-  },
-  headerTag: {
-    display: "inline-block",
-    padding: "6px 14px",
-    background: "rgba(99, 102, 241, 0.1)",
-    border: "1px solid rgba(99, 102, 241, 0.3)",
-    borderRadius: "100px",
-    fontSize: "11px",
-    color: "#a5b4fc",
-    letterSpacing: "2px",
-    marginBottom: "20px",
-    fontFamily: "monospace",
-  },
-  title: {
-    fontSize: "clamp(36px, 6vw, 56px)",
-    fontWeight: 800,
-    color: "#fff",
-    margin: "0 0 12px 0",
-    letterSpacing: "-1px",
-  },
-  subtitle: {
-    fontSize: "16px",
-    color: "#64748b",
-    margin: 0,
-  },
-  mainCard: {
-    background: "rgba(255, 255, 255, 0.03)",
-    border: "1px solid rgba(255, 255, 255, 0.08)",
-    borderRadius: "20px",
-    padding: "48px 32px",
-    textAlign: "center",
-    marginBottom: "32px",
-  },
-  cardIcon: {
-    marginBottom: "20px",
-  },
-  cardTitle: {
-    fontSize: "28px",
-    fontWeight: 800,
-    color: "#fff",
-    margin: "0 0 6px 0",
-    letterSpacing: "-0.5px",
-  },
-  cardRole: {
-    fontSize: "14px",
-    color: "#94a3b8",
-    margin: 0,
-    fontWeight: 500,
-  },
-  divider: {
-    width: "40px",
-    height: "2px",
-    background: "#6366f1",
-    margin: "24px auto",
-    borderRadius: "1px",
-  },
-  emailLink: {
-    fontSize: "18px",
-    color: "#6366f1",
-    textDecoration: "none",
-    fontFamily: "monospace",
-    fontWeight: 600,
-    transition: "all 0.2s",
-  },
-  contactList: {
-    background: "rgba(255, 255, 255, 0.02)",
-    border: "1px solid rgba(255, 255, 255, 0.06)",
-    borderRadius: "16px",
-    padding: "8px",
-    marginBottom: "32px",
-  },
-  contactItem: {
-    display: "flex",
-    alignItems: "center",
-    gap: "16px",
-    padding: "16px",
-    borderRadius: "10px",
-    transition: "background 0.2s",
-  },
-  contactIcon: {
-    width: "40px",
-    height: "40px",
-    borderRadius: "10px",
-    background: "rgba(255, 255, 255, 0.05)",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    flexShrink: 0,
-  },
-  contactInfo: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "2px",
-  },
-  contactLabel: {
-    fontSize: "12px",
-    color: "#64748b",
-    textTransform: "uppercase",
-    letterSpacing: "0.5px",
-  },
-  contactValue: {
-    fontSize: "15px",
-    color: "#e2e8f0",
-    fontWeight: 500,
-  },
-  contactValueLink: {
-    fontSize: "15px",
-    color: "#6366f1",
-    fontWeight: 500,
-    textDecoration: "none",
-  },
-  quickLinks: {
-    textAlign: "center",
-    marginBottom: "48px",
-  },
-  quickTitle: {
-    fontSize: "14px",
-    color: "#64748b",
-    margin: "0 0 16px 0",
-    textTransform: "uppercase",
-    letterSpacing: "1px",
-  },
-  quickGrid: {
-    display: "flex",
-    justifyContent: "center",
-    gap: "12px",
-    flexWrap: "wrap",
-  },
-  quickBtn: {
-    padding: "10px 20px",
-    background: "transparent",
-    border: "1px solid",
-    borderRadius: "8px",
-    fontSize: "14px",
-    fontWeight: 600,
-    textDecoration: "none",
-    transition: "all 0.2s",
-  },
-  backWrap: {
-    textAlign: "center",
-  },
-  backBtn: {
-    display: "inline-flex",
-    alignItems: "center",
-    gap: "8px",
-    padding: "12px 24px",
-    color: "#64748b",
-    textDecoration: "none",
-    fontSize: "14px",
-    border: "1px solid rgba(255, 255, 255, 0.08)",
-    borderRadius: "8px",
-    transition: "all 0.2s",
-  },
-};
